@@ -8,6 +8,28 @@
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
+  <div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'RoR', root_path, class: 'navbar-brand' %>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li><%= link_to 'About Us', search_path %></li>
+
+
+    </ul>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
 
 <%= yield %>
 
