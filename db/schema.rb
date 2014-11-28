@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128192655) do
+ActiveRecord::Schema.define(version: 20141128194942) do
 
   create_table "stops", force: true do |t|
-    t.float  "lat"
-    t.float  "long"
-    t.string "route"
-    t.string "stop_name"
+    t.float   "lat"
+    t.float   "long"
+    t.string  "route"
+    t.string  "stop_name"
+    t.integer "sprig_id"
   end
 
   create_table "subway_stops", force: true do |t|
