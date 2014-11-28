@@ -1,5 +1,3 @@
-select subways witin
-
 stop_id,stop_name,stop_lat,stop_lon,location_type,parent_station
 101,Van Cortlandt Park - 242 St,40.889248,-73.898583,1,
 103,238 St,40.884667,-73.900870,1,
