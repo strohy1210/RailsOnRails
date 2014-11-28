@@ -1,2 +1,2 @@
 include Sprig::Helpers
-sprig Stop
+sprig [Stop]
