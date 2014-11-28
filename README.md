@@ -1,5 +1,14 @@
 select subways witin  
 
+SELECT * FROM stops WHERE Latitude BETWEEN Commuite destination latitude + 1 and commute destination latitude- 1
+
+SELECT * FROM stops WHERE Longitude BETWEEN Commuite destination longitude + 1 and commute destination longitude - 1
+
+geocode api
+http://stackoverflow.com/questions/13407468/gettings-stops-associated-with-a-route-from-gtfs-data
+Join ON routes table, then join on another table
+# http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-2500%7Cbeds:1%7Ccommute:1800:11%20broadway,%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:1,2,3
+
 stop_id,stop_name,stop_lat,stop_lon,location_type,parent_station
 101,Van Cortlandt Park - 242 St,40.889248,-73.898583,1,
 103,238 St,40.884667,-73.900870,1,
