@@ -33,8 +33,8 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-gem 'sprig'
+gem "haversine"
+gem "geocoder"
 
 group :test, :development do
   gem "rspec-rails"
