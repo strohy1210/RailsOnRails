@@ -33,6 +33,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'rest-client', '~> 1.7.2'
 gem "haversine"
 gem "geocoder"
 

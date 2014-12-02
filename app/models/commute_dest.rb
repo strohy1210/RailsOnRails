@@ -26,6 +26,11 @@ class CommuteDest
     close_lines.flatten.uniq.map {|el| el.strip}.uniq
   end
 
+  def urlify
+    lines= close_lines.join(",")
+    "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-2500%7Cbeds:1%7Ccommute:1800:11%20broadway,%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:#{lines}"
+  end
+
 
 end
 
