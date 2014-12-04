@@ -36,7 +36,7 @@ gem 'spring',        group: :development
 gem 'rest-client', '~> 1.7.2'
 gem "haversine"
 gem "geocoder"
-
+gem 'nokogiri'
 group :test, :development do
   gem "rspec-rails"
   gem "capybara"

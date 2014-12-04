@@ -1,5 +1,6 @@
 require 'haversine'
 require 'pry'
+require 'rest_client'
 
 class CommuteDest
 
@@ -27,17 +28,14 @@ class CommuteDest
   end
 
   def urlify
-    lines= close_lines.join(",")
-    "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-2500%7Cbeds:1%7Ccommute:1800:11%20broadway,%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:#{lines}"
+    lines= self.close_lines.join(",")
+    url = "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-2500%7Cbeds:1%7Ccommute:1800:11%20broadway,%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:#{lines}"
+    # response = RestClient.get 'url'
+    # binding.pry
   end
 
 
 end
-
- # CommuteDest.new("169 Canterbury Rd, White Plains, NY")
- # => #<CommuteDest:0x007fa7a4d7fb10 @query="169 Canterbury Rd, White Plains, NY", @latitude=41.043824, @longitude=-73.81676999999999>
-
-
 
 
 
