@@ -1,6 +1,9 @@
 class Apartment
   require 'open-uri'
   require 'date'
+  attr_accessor :photo_url, :price, :neighborhood
+
+  @@apartments = []
   # def self.find_se_rentals(url)
   #      binding.pry
   #     encoded_url = URI.encode(url)
@@ -8,6 +11,16 @@ class Apartment
 
   #     {median_price: info_hash["median_price"], search_url: info_hash["search_url"]}
   # end
+  def self.all
+    @@apartments
+  end
+  def initialize(photo_url, price, neighborhood)
+    @photo_url=photo_url
+    @price=price
+    @neighborhood =neighborhood
+    @@apartments << self
+  end
+
   def self.generate_listing_info(url)
     self.noko_listings(url)
     @photos = self.get_photos(url)

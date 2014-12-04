@@ -4,6 +4,13 @@
 <%= @prices %>
 <%= @neighborhoods %>
 
+<% @apartments.each_with_index do |apt, i| %>
+  <h4>Apartment <%= i +1 %></h4>
+  <%= image_tag(apt.photo_url) %>
+  Price:<%= apt.price %>
+  Neighborhood: <%= apt.neighborhood %> 
+<%end%>
+
 <% @photos.each do |photo| %>
   <%= image_tag(photo)%>
 <%end%>
