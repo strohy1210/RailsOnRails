@@ -8,22 +8,47 @@ class Apartment
 
   #     {median_price: info_hash["median_price"], search_url: info_hash["search_url"]}
   # end
-    def self.show_listings(url)
-      self.noko_listings(url)
-    end
-    def self.noko_listings(url)
-     binding.pry
-    @listings_page = Nokogiri::HTML(open(url))
-
-         
-    end
+  def self.generate_listing_info(url)
+    self.noko_listings(url)
+    @photos = self.get_photos(url)
+    @prices = self.get_prices(url)
+    @neighborhoods = self.get_neighborhoods(url)
+    # self.get_listing_count(url)
+  end
+  
+  def self.noko_listings(url)
+    @@listing_page = Nokogiri::HTML(open(url))     
+  end
 
    def self.get_photos(url)
-    listing_photos =[]
-      @listings_page.css('div#result-details a').each do |listing|
-        listing_photos << listing.children[0].attributes['data-original'].value
+    @listing_photos =[]
+
+      @@listing_page.css('#result-details .photo img').each do |listing|
+        @listing_photos << listing.attributes['data-original'].value
       end
+      @listing_photos
    end
+
+   def self.get_prices(url)
+      @listing_prices =[] 
+      @@listing_page.css('div#result-details .price-info .price').each do |listing|
+        @listing_prices << listing.text
+      end
+      @listing_prices
+    end
+
+    def self.get_neighborhoods(url)
+      @listing_neighborhoods = []
+      @@listing_page.css('div#result-details .details_info a').each do |listing|
+        @listing_neighborhoods << listing.text
+      end
+      @listing_neighborhoods
+    end
+
+    # def self.get_listing_count(url)
+    #   # @listing_count = listings_page.css('.result-count').text
+    # end
+
   #     if listings_page.css(".left-two-thirds .photo img").first
   #       if listings_page.css(".left-two-thirds .photo img")[2]
   #         ret_hash[:img_url_1] = listings_page.css(".left-two-thirds .photo img")[2].attributes["data-original"].value
