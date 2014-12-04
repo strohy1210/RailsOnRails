@@ -1,17 +1,12 @@
 <div class = "results">
 <h1> You searched for <%= @commute_dest.query %> </h1>
-<%= @photos %>
-<%= @prices %>
-<%= @neighborhoods %>
 
 <% @apartments.each_with_index do |apt, i| %>
+  <div class="listing">
   <h4>Apartment <%= i +1 %></h4>
   <%= image_tag(apt.photo_url) %>
   Price:<%= apt.price %>
   Neighborhood: <%= apt.neighborhood %> 
+</div>
 <%end%>
 
-<% @photos.each do |photo| %>
-  <%= image_tag(photo)%>
-<%end%>
-</div>

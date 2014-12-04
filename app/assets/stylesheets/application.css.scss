@@ -22,7 +22,7 @@
 body {
   padding-top: 70px;
   padding-bottom: 30px;
-  background: url(bg.jpg) no-repeat center top;
+  
 }
 
 .theme-dropdown .dropdown-menu {
@@ -33,4 +33,20 @@ body {
 
 .theme-showcase > p > .btn {
   margin: 5px 0;
+}
+
+.search {
+  margin-top: 150px;
+  color: #000;
+  background-color: #fff;
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
+
+
+.listing {
+
+  background-color: #fff;
+  padding: 20px;
+  border-top: 1px solid #ccc;
 }
