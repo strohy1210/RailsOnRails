@@ -4,7 +4,7 @@ require 'pry'
 class CommuteDest
 
   attr_accessor :latitude, :longitude, :query, :close_lines
-  
+
   def initialize(query)
     @query = query
     result = Geocoder.search(@query)
@@ -13,12 +13,12 @@ class CommuteDest
   end
 
   def close_lines
-   
+   # binding.pry
     # commute_dest = [@latitude, @longitude]
      close_lines =[]
     Stop.all.each do |stop|
       distance = Haversine.distance(stop.lat, stop.long, @latitude, @longitude)
-      if distance.to_miles < 0.31 
+      if distance.to_miles < 0.31
 
         close_lines << stop.route.split(",")
       end
