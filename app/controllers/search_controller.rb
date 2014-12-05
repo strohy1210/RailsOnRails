@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def search
-    
+    Apartment.clear
     @read_timeout = 120
     @commute_dest = CommuteDest.new(params[:q])
     #incorporate price params into everything

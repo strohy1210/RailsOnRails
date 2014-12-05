@@ -4,17 +4,28 @@ require 'rest_client'
 
 class CommuteDest
 
-  attr_accessor :latitude, :longitude, :query, :close_lines
+  attr_accessor :latitude, :longitude, :query, :close_lines, :address
   
   def initialize(query)
     @query = query
     result = Geocoder.search(@query)
+
     @latitude= result.first.data["geometry"]["location"]["lat"]
     @longitude= result.first.data["geometry"]["location"]["lng"]
+    @address = result.first.data["formatted_address"]
+    if result.first.data["types"][0] == "street_address"
+       @address_num = result.first.data["address_components"][0]["long_name"]
+       @road = result.first.data["address_components"][1]["long_name"].split.join("%20")
+    else
+      @address_num = result.first.data["address_components"][2]["long_name"]
+      @road = result.first.data["address_components"][3]["long_name"].split.join("%20")
+      # binding.pry
+    end
+  binding.pry
   end
 
   def close_lines
-   
+   #check to see if new york
     # commute_dest = [@latitude, @longitude]
      close_lines =[]
     Stop.all.each do |stop|
@@ -29,9 +40,9 @@ class CommuteDest
 
   def urlify
     lines= self.close_lines.join(",")
-    url = "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-2500%7Cbeds:1%7Ccommute:1800:11%20broadway,%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:#{lines}"
-    # response = RestClient.get 'url'
-    # binding.pry
+  # binding.pry
+   url = "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-2500%7Cbeds:1%7Ccommute:1800:#{@address_num}%20#{@road},%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:#{lines}" 
+    # url = "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-2500%7Cbeds:1%7Ccommute:1800:11%20broadway,%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:#{lines}"
   end
 
 

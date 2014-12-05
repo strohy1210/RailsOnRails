@@ -14,6 +14,9 @@ class Apartment
   def self.all
     @@apartments
   end
+  def self.clear
+    @@apartments.clear
+  end
   def initialize(photo_url, price, neighborhood)
     @photo_url=photo_url
     @price=price

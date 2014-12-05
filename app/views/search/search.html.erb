@@ -4,8 +4,8 @@
 <% @apartments.each_with_index do |apt, i| %>
   <div class="listing">
   <h4>Apartment <%= i +1 %></h4>
-  <%= image_tag(apt.photo_url) %>
-  Price:<%= apt.price %>
+  <%= image_tag(apt.photo_url) %><br>
+  Price:<%= apt.price %><br>
   Neighborhood: <%= apt.neighborhood %> 
 </div>
 <%end%>
