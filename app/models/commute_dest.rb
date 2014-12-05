@@ -15,13 +15,16 @@ class CommuteDest
     @address = result.first.data["formatted_address"]
     if result.first.data["types"][0] == "street_address"
        @address_num = result.first.data["address_components"][0]["long_name"]
-       @road = result.first.data["address_components"][1]["long_name"].split.join("%20")
+       @road = result.first.data["address_components"][1]["long_name"].gsub("Street", "st").downcase.split.join("%20")
+    elsif result.first.data["types"].size === 3
+      @address_num =result.first.data["address_components"][1]["long_name"]
+      @road = result.first.data["address_components"][2]["long_name"].gsub("Street", "st").downcase.split.join("%20")
     else
       @address_num = result.first.data["address_components"][2]["long_name"]
-      @road = result.first.data["address_components"][3]["long_name"].split.join("%20")
+      @road = result.first.data["address_components"][3]["long_name"].gsub("Street", "st").downcase.split.join("%20")
       # binding.pry
     end
-  binding.pry
+  # binding.pry
   end
 
   def close_lines
@@ -40,6 +43,8 @@ class CommuteDest
 
   def urlify
     lines= self.close_lines.join(",")
+
+    # "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-2500%7Cbeds:1%7Ccommute:1800:230%20park%20avenue,%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:4,6,6X,5,7,7X,GS"
   # binding.pry
    url = "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-2500%7Cbeds:1%7Ccommute:1800:#{@address_num}%20#{@road},%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:#{lines}" 
     # url = "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-2500%7Cbeds:1%7Ccommute:1800:11%20broadway,%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:#{lines}"

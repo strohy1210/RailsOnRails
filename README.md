@@ -14,3 +14,8 @@ event listener for when the request
 
 
 
+http://stackoverflow.com/questions/18139380/override-30-seconds-timeout-on-gem-class-timeout
+start server w this:
+thin --timeout 60 start
+
+http://userprimary.net/posts/2008/04/13/setting-a-longer-timeout-for-nethttp-requests-in-ruby/
