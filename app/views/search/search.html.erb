@@ -1,4 +1,5 @@
 <div class = "results text-center">
+
 <h1> You searched for <%= @commute_dest.query %>. Here are all the apartments within a 30 min commute of that address with no transfers!</h1>
 <% if @apartments.size > 0 %>
 <% @apartments.each_with_index do |apt, i| %>
