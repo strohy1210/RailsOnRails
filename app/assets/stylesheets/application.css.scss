@@ -25,6 +25,13 @@ body {
   
 }
 
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  background: url(bg.jpg) center top;
+  background-attachment: local;
+}
+
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;
@@ -60,11 +67,19 @@ body {
       margin: 0 auto;
 }
 
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .img-responsive {
     margin: 0 auto;
 }
+.results-title {
+ color: #000;
+ background-color: #fff;
+
+}
+
+
+
+
+
+
+

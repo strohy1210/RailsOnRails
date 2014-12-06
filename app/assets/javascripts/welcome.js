@@ -1,6 +1,6 @@
 $(function(){
 
-$('.five, .six, .seven, h2, h3, .one, .two, .four, .eight').hide();
+$('.five, .six, .seven, .three, .one, .two, .four, .eight').hide();
 
 // // $('button').click(function(){
 // //   alert('yo')
