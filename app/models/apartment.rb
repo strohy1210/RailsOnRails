@@ -1,7 +1,7 @@
 class Apartment
   require 'open-uri'
   require 'date'
-  attr_accessor :photo_url, :price, :neighborhood
+  attr_accessor :photo_url, :price, :neighborhood, :link
 
   @@apartments = []
   # def self.find_se_rentals(url)
@@ -17,21 +17,21 @@ class Apartment
   def self.clear
     @@apartments.clear
   end
-  def initialize(photo_url, price, neighborhood)
+  def initialize(photo_url, price, neighborhood, link)
     @photo_url=photo_url
     @price=price
     @neighborhood =neighborhood
+    @link=link
     @@apartments << self
   end
 
   def self.get_links(url)
     @listing_urls =[]
-    @@listing_page
-    # self.noko_listings(url)
-    # @photos = self.get_photos(url)
-    # @prices = self.get_prices(url)
-    # @neighborhoods = self.get_neighborhoods(url)
-    # # self.get_listing_count(url)
+    @@listing_page.css('#result-details .photo a').each do |listing|
+        l = listing.attributes["href"].value
+        @listing_urls << "http://streeteasy.com#{l}"
+      end
+    @listing_urls
   end
   
   def self.noko_listings(url)

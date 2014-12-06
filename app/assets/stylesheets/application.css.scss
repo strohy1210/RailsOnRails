@@ -18,11 +18,23 @@
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Carme);
+
 /* Some Style from the Bootstrap Default Theme */
 body {
   padding-top: 70px;
   padding-bottom: 30px;
 
+
+  font-family: 'Carme', sans-serif;
+
+}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  background: url(bg.jpg) center top;
+  background-attachment: local;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -41,17 +53,22 @@ body {
   background-color: #fff;
   padding: 20px;
   border-top: 1px solid #ccc;
+<<<<<<< HEAD
 
   border-radius: 20px;
+=======
+
+  border-radius: 16px;
+>>>>>>> 251d8a5b6e2226fd337dbb03d4fb7322aa987527
 }
 
 
 .listing {
-
-  background-color: #fff;
+  border-radius: 14px;
+  background-color: #ccc;
   padding: 20px;
   border-top: 2px solid #ccc;
-  border-radius: 4px;
+  border-radius: 80px;
 
 }
 
@@ -60,11 +77,18 @@ body {
       margin: 0 auto;
 }
 
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .img-responsive {
     margin: 0 auto;
 }
+h1, h2 {
+  color: #000
+}
+
+
+
+
+
+
+
+

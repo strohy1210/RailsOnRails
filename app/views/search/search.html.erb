@@ -1,14 +1,20 @@
+<<<<<<< HEAD
 <div class = "results text-center">
 
 <h1> You searched for <%= @commute_dest.query %>. Here are all the apartments within a 30 min commute of that address with no transfers!</h1>
+=======
+<div class = "results text-center col-md-8 col-md-offset-2">
+
+<h1 class='color'> You searched for <%= @commute_dest.query %>. <h1>
+  <h2 class='color'> Here are the apartments below $2500 within a 30 min commute of that address with no transfers.</h2>
+>>>>>>> 251d8a5b6e2226fd337dbb03d4fb7322aa987527
 <% if @apartments.size > 0 %>
 <% @apartments.each_with_index do |apt, i| %>
-  <div class="listing center-block text-center">
-  <h4>Your Pad <%= i +1 %></h4>
-  <%= image_tag(apt.photo_url, class: "img-rounded img-responsive") %><br>
+  <div class="listing center-block text-center ">
+  <%= link_to(image_tag(apt.photo_url, class: "img-rounded img-responsive"), apt.link)%><br>
   <h4>Price: <%= apt.price %> |
   Neighborhood: <%= apt.neighborhood %> </h4>
 </div>
 <%end%>
 <%end%>
-
+<div>
