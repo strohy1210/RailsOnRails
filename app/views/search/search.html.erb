@@ -1,10 +1,12 @@
-<div class = "results text-center col-md-8 col-md-offset-2">
+
+<div class = "results text-center col-md-8 col-md-offset-2 listing">
 
 <h1 class='color'> You searched for <%= @commute_dest.query %>. <h1>
   <h2 class='color'> Here are the apartments below $2500 within a 30 min commute of that address with no transfers.</h2>
 <% if @apartments.size > 0 %>
 <% @apartments.each_with_index do |apt, i| %>
-  <div class="listing center-block text-center ">
+  <div class="listing center-block text-center">
+    <h4><%= apt.address %></h4>
   <%= link_to(image_tag(apt.photo_url, class: "img-rounded img-responsive"), apt.link)%><br>
   <h4>Price: <%= apt.price %> |
   Neighborhood: <%= apt.neighborhood %> </h4>

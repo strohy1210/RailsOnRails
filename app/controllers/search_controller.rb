@@ -12,10 +12,11 @@ class SearchController < ApplicationController
     @prices = Apartment.get_prices(url)
     @neighborhoods = Apartment.get_neighborhoods(url)
     @urls = Apartment.get_links(url)
+    @addresses = Apartment.get_addresses(url)
 
     @photos.size.times do
       i = Apartment.all.size
-      Apartment.new(@photos[i], @prices[i], @neighborhoods[i], @urls[i])
+      Apartment.new(@photos[i], @prices[i], @neighborhoods[i], @urls[i], @addresses[i])
     end
     
     @apartments = Apartment.all

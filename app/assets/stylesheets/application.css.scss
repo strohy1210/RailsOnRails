@@ -33,6 +33,7 @@ body {
   padding-bottom: 30px;
   background: url(bg.jpg) center top;
   background-attachment: local;
+    margin-top: 80px;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -46,7 +47,7 @@ body {
 }
 
 .search {
-  margin-top: 150px;
+
   color: #000;
   background-color: #fff;
   padding: 20px;
@@ -58,7 +59,7 @@ body {
 
 .listing {
   border-radius: 14px;
-  background-color: #ccc;
+  background-color: #eee;
   padding: 20px;
   border-top: 2px solid #ccc;
   border-radius: 80px;
@@ -68,6 +69,7 @@ body {
 .listing img {
   border: 2px solid #000;
       margin: 0 auto;
+       margin-top: 20px;
 }
 
 
@@ -78,6 +80,15 @@ h1, h2 {
   color: #000
 }
 
+.loading {
+  color: #fff
+}
+
+iframe {
+
+ margin-top: 20px;
+  
+}
 
 
 

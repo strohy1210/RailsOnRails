@@ -1,6 +1,20 @@
 $(function(){
 
-$('.five, .six, .seven, .three, .one, .two, .four, .eight').hide();
+$('iframe').hide();
+$('.loading').hide();
+
+var form = document.getElementsByClassName('navbar-form')[0];
+form.addEventListener("submit", function() {
+
+    // e.preventDefault();
+
+    $('iframe').show();
+    $('.loading').show();
+    $('.search').hide();
+
+    // document.forms[0].submit();
+
+});
 
 // // $('button').click(function(){
 // //   alert('yo')

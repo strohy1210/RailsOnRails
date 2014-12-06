@@ -1,7 +1,7 @@
 class Apartment
   require 'open-uri'
   require 'date'
-  attr_accessor :photo_url, :price, :neighborhood, :link
+  attr_accessor :photo_url, :price, :neighborhood, :link, :address
 
   @@apartments = []
   # def self.find_se_rentals(url)
@@ -17,22 +17,33 @@ class Apartment
   def self.clear
     @@apartments.clear
   end
-  def initialize(photo_url, price, neighborhood, link)
+  def initialize(photo_url, price, neighborhood, link, address)
     @photo_url=photo_url
     @price=price
     @neighborhood =neighborhood
     @link=link
+    @address=address
     @@apartments << self
   end
 
   def self.get_links(url)
     @listing_urls =[]
+   
     @@listing_page.css('#result-details .photo a').each do |listing|
         l = listing.attributes["href"].value
+      
         @listing_urls << "http://streeteasy.com#{l}"
       end
     @listing_urls
   end
+
+  def self.get_addresses(url)
+    @listing_addresses =[]
+    @@listing_page.css('.details-title').each do |listing|
+      @listing_addresses << listing.css('a').first.text
+    end
+    @listing_addresses
+ end
   
   def self.noko_listings(url)
     @@listing_page = Nokogiri::HTML(open(url))     
