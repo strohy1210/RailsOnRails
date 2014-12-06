@@ -2,11 +2,12 @@
 <h1> You searched for <%= @commute_dest.query %> </h1>
 
 <% @apartments.each_with_index do |apt, i| %>
-  <div class="listing">
-  <h4>Apartment <%= i +1 %></h4>
-  <%= image_tag(apt.photo_url) %><br>
-  Price:<%= apt.price %><br>
-  Neighborhood: <%= apt.neighborhood %> 
+  <div class="listing col-md-12 center-block">
+  <h4>Your Pad <%= i +1 %></h4>
+  <%= image_tag(apt.photo_url), class: "img-rounded" %><br>
+  <h4>Price: <%= apt.price %> |
+  Neighborhood: <%= apt.neighborhood %> </h4>
 </div>
 <%end%>
+
 
