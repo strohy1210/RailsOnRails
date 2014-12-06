@@ -1,8 +1,7 @@
 <div class = "results text-center col-md-8 col-md-offset-2">
-  <div class ="results-title" >
-<h1> You searched for <%= @commute_dest.query %>. <h1>
-  <h2> Here are all the apartments within a 30 min commute of that address with no transfers!</h2>
-</div>
+
+<h1 class='color'> You searched for <%= @commute_dest.query %>. <h1>
+  <h2 class='color'> Here are the apartments below $2500 within a 30 min commute of that address with no transfers.</h2>
 <% if @apartments.size > 0 %>
 <% @apartments.each_with_index do |apt, i| %>
   <div class="listing center-block text-center ">
