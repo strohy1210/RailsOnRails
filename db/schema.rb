@@ -21,12 +21,4 @@ ActiveRecord::Schema.define(version: 20141128194942) do
     t.integer "sprig_id"
   end
 
-  create_table "subway_stops", force: true do |t|
-    t.string   "name"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end

@@ -1,10 +1,10 @@
 class SearchController < ApplicationController
   def search
-  
+
     Apartment.clear
     # @read_timeout = 120
-    @commute_dest = CommuteDest.new(params[:q])
- 
+    @commute_dest = CommuteDest.new(params[:q], params[:x])
+    # @max_time = CommuteDest.new(params[:t])
     url = @commute_dest.urlify
       Apartment.noko_listings(url)
 
@@ -18,7 +18,8 @@ class SearchController < ApplicationController
       i = Apartment.all.size
       Apartment.new(@photos[i], @prices[i], @neighborhoods[i], @urls[i], @addresses[i])
     end
-    
+
     @apartments = Apartment.all
   end
+
 end
