@@ -1,6 +1,10 @@
 <div class = "results text-center">
 
-<h1> You searched for <%= @commute_dest.query %>. Here are all the apartments within a 30 min commute of that address with no transfers!</h1>
+<h1> You searched for <%= @commute_dest.query %>. Here are all the apartments within a <%= (@commute_dest.max_time.to_i/60).to_s %> min commute of that address with no transfers!
+These are all less than $ <%= @commute_dest.max_price %>
+</h1>
+<h2> These are all less than $ <%= @commute_dest.max_price %> </h2>
+
 <% if @apartments.size > 0 %>
 <% @apartments.each_with_index do |apt, i| %>
   <div class="listing center-block text-center">
