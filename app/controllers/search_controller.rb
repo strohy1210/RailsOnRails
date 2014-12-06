@@ -1,11 +1,12 @@
 class SearchController < ApplicationController
   def search
 
+    # raise params.inspect
     Apartment.clear
     # @read_timeout = 120
-    @commute_dest = CommuteDest.new(params[:q], params[:x])
-    # @max_time = CommuteDest.new(params[:t])
+    @commute_dest = CommuteDest.new(params[:q], params[:x], params[:t])
     url = @commute_dest.urlify
+
       Apartment.noko_listings(url)
 
     @photos = Apartment.get_photos(url)
