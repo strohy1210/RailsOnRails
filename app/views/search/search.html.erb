@@ -1,13 +1,13 @@
-<div class = "results">
-<h1> You searched for <%= @commute_dest.query %> </h1>
-
+<div class = "results text-center">
+<h1> You searched for <%= @commute_dest.query %>. Here are all the apartments within a 30 min commute of that address with no transfers!</h1>
+<% if @apartments.size > 0 %>
 <% @apartments.each_with_index do |apt, i| %>
-  <div class="listing col-md-12 center-block">
+  <div class="listing center-block text-center">
   <h4>Your Pad <%= i +1 %></h4>
-  <%= image_tag(apt.photo_url), class: "img-rounded" %><br>
+  <%= image_tag(apt.photo_url, class: "img-rounded img-responsive") %><br>
   <h4>Price: <%= apt.price %> |
   Neighborhood: <%= apt.neighborhood %> </h4>
 </div>
 <%end%>
-
+<%end%>
 

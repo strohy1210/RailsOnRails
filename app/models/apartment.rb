@@ -24,12 +24,14 @@ class Apartment
     @@apartments << self
   end
 
-  def self.generate_listing_info(url)
-    self.noko_listings(url)
-    @photos = self.get_photos(url)
-    @prices = self.get_prices(url)
-    @neighborhoods = self.get_neighborhoods(url)
-    # self.get_listing_count(url)
+  def self.get_links(url)
+    @listing_urls =[]
+    @@listing_page
+    # self.noko_listings(url)
+    # @photos = self.get_photos(url)
+    # @prices = self.get_prices(url)
+    # @neighborhoods = self.get_neighborhoods(url)
+    # # self.get_listing_count(url)
   end
   
   def self.noko_listings(url)
