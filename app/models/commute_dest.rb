@@ -4,11 +4,12 @@ require 'rest_client'
 
 class CommuteDest
 
-  attr_accessor :latitude, :longitude, :query, :close_lines, :address, :max_price
+  attr_accessor :latitude, :longitude, :query, :close_lines, :address, :max_price, :max_time
 
-  def initialize(query, x)
+  def initialize(query, x, t)
     @query = query
     @max_price = x
+    @max_time = t
     result = Geocoder.search(@query)
 
     @latitude= result.first.data["geometry"]["location"]["lat"]
@@ -43,12 +44,9 @@ class CommuteDest
   def urlify
     lines= self.close_lines.join(",")
 
-   url = "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-#{@max_price}%7Cbeds:1%7Ccommute:1800:#{@address_num}%20#{@road},%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:#{lines}"
+   url = "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:-#{@max_price}%7Cbeds:1%7Ccommute:#{@max_time}:#{@address_num}%20#{@road},%20new%20york,%20ny%7Ctransit_distance:0.3%7Ctransit_lines:#{lines}"
 
   end
 
 
 end
-
-
-
