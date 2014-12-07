@@ -10,6 +10,7 @@ def get_results
   redirect to results
 end
 event listener for when the request
+http://localhost:3000/search?utf8=%E2%9C%93&q=34th+and+lexington%2C+new+york%2C+ny&x=2000&t=1800
 
 Sarah is a superstar
 
