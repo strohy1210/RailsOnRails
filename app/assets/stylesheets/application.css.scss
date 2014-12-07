@@ -22,20 +22,17 @@
 
 /* Some Style from the Bootstrap Default Theme */
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
-
-
+  padding-bottom: 70px; 
   font-family: 'Carme', sans-serif;
 
 }
 
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+
+  padding-bottom: 70px; 
   background: url(bg.jpg) center top;
   background-attachment: local;
-    margin-top: 80px;
+  
 }
 
 .theme-dropdown .dropdown-menu {
@@ -55,6 +52,7 @@ body {
   padding: 20px;
   border-top: 1px solid #ccc;
   border-radius: 20px;
+  margin-top: 70px;
 }
 
 
@@ -70,7 +68,7 @@ body {
 .listing img {
   border: 2px solid #000;
       margin: 0 auto;
-       margin-top: 20px;
+     margin-top: 60px;
 }
 
 
@@ -87,8 +85,12 @@ h1, h2 {
 
 iframe {
 
- margin-top: 20px;
+ margin-top: 60px;
   
+}
+
+.results {
+   margin-top: 80px;
 }
 
 
