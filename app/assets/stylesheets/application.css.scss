@@ -93,7 +93,20 @@ iframe {
    margin-top: 80px;
 }
 
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
 
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: transparent;
+  border-bottom: 2px solid #5780ff
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: black;
+}
 
 
 
