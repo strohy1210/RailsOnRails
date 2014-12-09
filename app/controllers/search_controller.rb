@@ -6,6 +6,7 @@ class SearchController < ApplicationController
     # @read_timeout = 120
     @commute_dest = CommuteDest.new(params[:q], params[:x], params[:t])
     url = @commute_dest.urlify
+    binding.pry
       Apartment.noko_listings(url)
    
     @photos = Apartment.get_photos(url)

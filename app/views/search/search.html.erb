@@ -10,11 +10,10 @@
 <% if @apartments.size > 0 %>
 <% @apartments.each_with_index do |apt, i| %>
   <div class="listing item center-block text-center">
-    <h4><%= apt.address %></h4>
+    <h4><%= link_to(apt.address, apt.link)%></h4>
 <div class="hover">
   <%= link_to(image_tag(apt.photo_url, class: "img-rounded img-responsive"), apt.link)%><br>
 
-  <%= link_to("View on streeteasy.com", apt.link, class: "se-link")%><br>
 </div>
   <h4>Price: <%= apt.price %> |
   Neighborhood: <%= apt.neighborhood %> </h4>
