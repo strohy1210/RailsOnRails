@@ -12,6 +12,7 @@ class SearchController < ApplicationController
     @prices = Apartment.get_prices(url)
     @neighborhoods = Apartment.get_neighborhoods(url)
     @urls = Apartment.get_links(url)
+
     @addresses = Apartment.get_addresses(url)
 
     @photos.size.times do

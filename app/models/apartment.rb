@@ -4,13 +4,7 @@ class Apartment
   attr_accessor :photo_url, :price, :neighborhood, :link, :address
 
   @@apartments = []
-  # def self.find_se_rentals(url)
-  #      binding.pry
-  #     encoded_url = URI.encode(url)
-  #     info_hash = JSON.load(open(encoded_url))["search_url"]
 
-  #     {median_price: info_hash["median_price"], search_url: info_hash["search_url"]}
-  # end
   def self.all
     @@apartments
   end
@@ -26,53 +20,42 @@ class Apartment
     @@apartments << self
   end
 
-  def self.get_links(url)
-    @listing_urls =[]
-   
-    @@listing_page.css('#result-details .photo a').each do |listing|
-        l = listing.attributes["href"].value
-      
-        @listing_urls << "http://streeteasy.com#{l}"
-      end
-    @listing_urls
-  end
 
-  def self.get_addresses(url)
-    @listing_addresses =[]
-    @@listing_page.css('.details-title').each do |listing|
-      @listing_addresses << listing.css('a').first.text
-    end
-    @listing_addresses
- end
-  
   def self.noko_listings(url)
     @@listing_page = Nokogiri::HTML(open(url))     
   end
 
-   def self.get_photos(url)
-    @listing_photos =[]
-
-      @@listing_page.css('#result-details .photo img').each do |listing|
-        @listing_photos << listing.attributes['data-original'].value
-      end
-      @listing_photos
-   end
-
-   def self.get_prices(url)
-      @listing_prices =[] 
-      @@listing_page.css('div#result-details .price-info .price').each do |listing|
-        @listing_prices << listing.text
-      end
-      @listing_prices
+  def self.get_links(url)
+    @@listing_page.css('#result-details .photo a').map do |listing|
+      l = listing.attributes["href"].value
+      "http://streeteasy.com#{l}"
     end
+  end
 
-    def self.get_neighborhoods(url)
-      @listing_neighborhoods = []
-      @@listing_page.css('div#result-details .details_info a').each do |listing|
-        @listing_neighborhoods << listing.text
-      end
-      @listing_neighborhoods
+  def self.get_addresses(url)
+    @@listing_page.css('.details-title').map do |listing|
+      listing.css('a').first.text
     end
+  end
+
+
+  def self.get_photos(url)
+    @@listing_page.css('#result-details .photo img').map do |listing|
+      listing.attributes['data-original'].value
+    end  
+  end
+
+  def self.get_prices(url)
+    @@listing_page.css('div#result-details .price-info .price').map do |listing|
+      listing.text
+    end
+  end
+
+  def self.get_neighborhoods(url)
+    @@listing_page.css('div#result-details .details_info a').map do |listing|
+      listing.text
+    end
+  end
     
 
 end

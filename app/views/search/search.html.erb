@@ -1,8 +1,12 @@
 <div class = "listing results text-center col-md-8 col-md-offset-2">
+<% if @apartments.size == 0 %>
+<h1 class='color'>  Dude - this is New York. There are no apartments under <%= @commute_dest.max_price %> within <%= (@commute_dest.max_time.to_i/60).to_s %> minutes of <%= @commute_dest.query %>. </h1>
+<h2><%= link_to "New Realistic Search", root_path %></h2>
 
-<h1 class='color'> You searched for <%= @commute_dest.query %>. Here are the latest listings within a <%= (@commute_dest.max_time.to_i/60).to_s %> min commute of that address with no transfers!</h1>
+<% else %>
+<h1 class='color'> You searched for <%= @commute_dest.query %>. <br>Here are the latest listings within a <%= (@commute_dest.max_time.to_i/60).to_s %> min commute of that address with no transfers!</h1>
 <h2 class='color'> These are all less than $ <%= @commute_dest.max_price %> </h2>
-
+<% end %>
 <% if @apartments.size > 0 %>
 <% @apartments.each_with_index do |apt, i| %>
   <div class="listing item center-block text-center">
@@ -10,7 +14,7 @@
 <div class="hover">
   <%= link_to(image_tag(apt.photo_url, class: "img-rounded img-responsive"), apt.link)%><br>
 
-  <%= link_to("View on streeteasy.com", apt.link, class: "se.com")%><br>
+  <%= link_to("View on streeteasy.com", apt.link, class: "se-link")%><br>
 </div>
   <h4>Price: <%= apt.price %> |
   Neighborhood: <%= apt.neighborhood %> </h4>

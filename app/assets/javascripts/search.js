@@ -1,13 +1,17 @@
 $(function(){
-//     $('.se.com').hide();
+//    $('.se-link').hide();
 
-// $('ul').on('hover', '.hover', function(){
-//   // debugger;
-//   $(this).toggle();
-//   $(this).find('.se.com').show();
-// }, function(){ 
-//   $(this).toggle();
-//   $(this).find('.se.com').hide();
-//   })
+// $('.item').hover(function(){
+
+// $(this).find('img').toggle();
+// $(this).find('.se-link').toggle();
+
+// } , function() {
+
+//     $(this).find('img').toggle();
+//       $(this).find('.se-link').toggle();
+
+//   });
+
 
 });
