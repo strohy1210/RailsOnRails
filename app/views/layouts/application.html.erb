@@ -16,6 +16,9 @@
     </div>
     <ul class="nav navbar-nav">
       <li><%= link_to 'New Search', root_path %></li>
+      <% if @url %>
+       <li><%= link_to 'More Results', @url %></li>
+      <%end%>
     </ul>
 
   </div>
